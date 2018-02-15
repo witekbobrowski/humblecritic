@@ -13,6 +13,8 @@ ITEM_CAPTION = "dd-image-box-caption-container"
 ITEM_TITLE = "dd-image-box-caption"
 
 # Functions
+
+
 def get_page_content(url):
     page = requests.get(url)
     if page.status_code == 200:

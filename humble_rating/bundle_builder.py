@@ -39,11 +39,19 @@ class Price(object):
         self.amount = amount
         self.currency = currency
 
+    def __repr__(self):
+        return "{0.currency}{0.amount}".format(self)
+
 class Tier(object):
 
     def __init__(self, items, price):
         self.items = items
         self.price = price
+    def __repr__(self):
+        output = "{0.price} Tier:".format(self)
+        for item in self.items:
+            output += "\n - " + item
+        return output
 
 # Product
 class Bundle(object):
@@ -54,4 +62,7 @@ class Bundle(object):
         self.tiers = None
 
     def __repr__(self):
-        return "{0.title} \nurl: \'{0.url}\'".format(self)
+        output = "{0.title} \nurl: \'{0.url}\'\n".format(self)
+        for tier in self.tiers:
+            output += "\n" + str(tier)
+        return output

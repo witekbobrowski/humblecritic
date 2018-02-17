@@ -7,3 +7,4 @@ from .builder import Builder
 from .bundle import Bundle
 from .tier import Tier
 from .item import Item
+from .item import ItemType

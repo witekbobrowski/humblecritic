@@ -2,6 +2,11 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
+from . import scraper
+from .bundle import Bundle
+from .tier import Tier
+from .item import Item
+from .item import ItemType
 
 def construct_bundle(builder):
     builder.new_bundle()
@@ -16,7 +21,7 @@ class Builder:
     def __init__(self, url):
         self.bundle = None
         self.url = url
-        self.content = hs.get_page_content(url)
+        self.content = scraper.get_page_content(url)
 
     def new_bundle(self):
         self.bundle = Bundle()
@@ -25,11 +30,11 @@ class Builder:
         self.bundle.url = self.url
 
     def build_title(self):
-        self.bundle.title = hs.get_bundle_title(self.content)
+        self.bundle.title = scraper.get_bundle_title(self.content)
 
     def build_tiers(self):
         tiers = []
-        scraped_tiers = hs.get_tiers(self.content)
+        scraped_tiers = scraper.get_tiers(self.content)
         for scraped_tier in scraped_tiers:
             price = scraped_tier[1]
             items = [Item(item, ItemType.BOOK) for item in scraped_tier[0]]

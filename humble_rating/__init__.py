@@ -2,5 +2,6 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-import goodreads as gr
-import humblebundle as hb
+from .goodreads import GoodreadsClient
+from .humblebundle import Builder
+from .humblebundle import construct_bundle

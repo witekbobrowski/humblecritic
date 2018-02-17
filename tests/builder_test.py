@@ -4,7 +4,7 @@ import unittest
 
 
 class TestSingleSuite(unittest.TestCase):
-    """Test single cases."""
+    """Test bundle builder."""
 
     def test_bundle_builder(self):
         url = "https://www.humblebundle.com/books/functional-programming-books"

@@ -4,7 +4,6 @@ import unittest
 
 
 class TestBundleBuilderSuite(unittest.TestCase):
-    """Test bundle builder."""
 
     def test_bundle_builder(self):
         url = "https://www.humblebundle.com/books/functional-programming-books"

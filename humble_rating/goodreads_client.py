@@ -5,7 +5,7 @@ import requests
 import xmltodict
 
 
-class GoodreadsClient():
+class GoodreadsClient:
 
     def __init__(self, key, secret):
         self.key = key

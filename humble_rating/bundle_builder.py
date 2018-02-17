@@ -58,8 +58,6 @@ class Tier(object):
             output += "\n - " + item
         return output
 
-# Product
-
 
 class Bundle(object):
 

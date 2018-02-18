@@ -12,7 +12,7 @@ class Item:
         self.type = type
 
     def __repr__(self):
-        return title
+        return self.title
 
 
 class ItemType(Enum):

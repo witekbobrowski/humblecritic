@@ -31,5 +31,10 @@ class Book:
         return self._book_dict["average_rating"]
 
     @property
+    def ratings_count(self):
+        """Number of ratings for the book"""
+        return self._book_dict['ratings_count']
+
+    @property
     def link(self):
         return self._book_dict["link"]

@@ -23,18 +23,18 @@ class GoodreadsClient:
 
     def request(self, method, api, params):
         base_url = "http://www.goodreads.com"
-        response = self.session.request(method, base_url + api, params=params)
+        response = self.session.request(method, base_url + api, params=params, timeout=3)
         return xmltodict.parse(response.content)["GoodreadsResponse"]
 
     def search_book(self, book):
         method = HTTPMethod.GET.value
         api_path = "/search/index.xml"
-        params = {"q": book, "key": self.key}
+        params = {"q": book, "key": self.key, "search[field]": "title"}
         response = self.request(method, api_path, params)
         if type(response["search"]["results"]["work"]) == list:
             return [results["best_book"] for results in response["search"]["results"]["work"]]
         else:
-            return [response["search"]["results"]["work"]]
+            return [response["search"]["results"]["work"]["best_book"]]
 
     def show_book(self, id):
         method = HTTPMethod.GET.value

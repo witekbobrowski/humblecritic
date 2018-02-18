@@ -12,5 +12,5 @@ class Tier:
     def __repr__(self):
         output = "{0.price} Tier:".format(self)
         for item in self.items:
-            output += "\n - {item}".format(self)
+            output += "\n - {0}".format(item)
         return output

@@ -1,9 +1,16 @@
 # humblecritic
+
+<p align=center>
+<a href="">
+<img alt="" src="https://img.shields.io/badge/python-v3.6.3-blue.svg">
+</a>
+</p>
+
 💯 Get score for HumbleBundle bundle
 
 #### Bundles supported:
 
-- [x] Book bundle (ratings from [Goodreads](.com))
+- [x] Book bundle (ratings from [Goodreads](goodreads.com))
 - [ ] Game bundle
 - [ ] Software bundle
 - [ ] Mobile bundle
@@ -14,7 +21,7 @@ Before running make sure you have all dependencies installed
 ```
 $ pip3 install -r requirements.txt
 ```
-then head over to [__main__.py](humble_rating/__main__.py) and pass Goodreads developer key and secret
+then head over to [\_\_main\_\_.py](humble_rating/\_\_main\_\_.py) and pass Goodreads developer key and secret
 ```
 client = gr.GoodreadsClient("dev-key", "secret")
 ```

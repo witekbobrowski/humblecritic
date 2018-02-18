@@ -12,9 +12,9 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='humble-rating',
+    name='humblecritic',
     version='0.1.0',
-    description=' Goodreads rates for books from HumbleBundle book bundles',
+    description='Get score for HumbleBundle bundle',
     long_description=readme,
     author='Witek Bobrowski',
     author_email='witek@bobrowski.com.pl',

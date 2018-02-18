@@ -31,6 +31,8 @@ class GoodreadsClient:
         api_path = "/search/index.xml"
         params = {"q": book, "key": self.key, "search[field]": "title"}
         response = self.request(method, api_path, params)
+        if response["search"]["results"] == None:
+            return []
         if type(response["search"]["results"]["work"]) == list:
             return [results["best_book"] for results in response["search"]["results"]["work"]]
         else:

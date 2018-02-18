@@ -52,12 +52,12 @@ def output(bundle, results):
     for result in results:
         print("\n", result["tier"].price, "Tier")
         for item in result["tier"].items:
-            book = result["books"][item]
             output = " - "
-            if item == None:
-                output += item + "was not found..."
-            else:
+            if item in result["books"]:
+                book = result["books"][item]
                 output += book_description(book)
+            else:
+                output += str(item) + "was not found..."
             print(output)
 
 

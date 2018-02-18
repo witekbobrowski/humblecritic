@@ -2,14 +2,15 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-from .context import hr
+from .context import hc
 
 import unittest
 
 
 class TestGoodreadsClientSuite(unittest.TestCase):
 
-    client = hr.GoodreadsClient("dev-key", "secret")
+    client = hc.GoodreadsClient("wbR3iPCTuK3dD0ydCEUnw",
+                            "ZIYF3sAD9ZQUGmndxted6yHdRRDmgh6V2PKe0tPLidc")
 
     def test_show_book(self):
         book_id = 1

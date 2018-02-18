@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding : utf-8 -*-
+# Author: Witek Bobrowski
+
 from .context import hr
 
 import unittest

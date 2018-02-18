@@ -21,7 +21,7 @@ Before running make sure you have all dependencies installed
 ```
 $ pip3 install -r requirements.txt
 ```
-then head over to [\_\_main\_\_.py](humble_rating/\_\_main\_\_.py) and pass Goodreads developer key and secret
+then head over to [\_\_main\_\_.py](humblecritic/\_\_main\_\_.py) and pass Goodreads developer key and secret
 ```
 client = gr.GoodreadsClient("dev-key", "secret")
 ```

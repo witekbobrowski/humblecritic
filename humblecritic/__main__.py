@@ -6,7 +6,7 @@ import argparse as ap
 import goodreads as gr
 import humblebundle as hb
 
-client = gr.GoodreadsClient("dev-key", "secret")
+client = gr.GoodreadsClient("developer-key","secret")
 
 
 def setup_parser():
@@ -48,17 +48,26 @@ def book_description(book):
 
 
 def output(bundle, results):
-    print(bundle.title)
+    print("\n", bundle.title)
+    ratings = []
     for result in results:
-        print("\n", result["tier"].price, "Tier")
+        print("\n###", result["tier"].price, "Tier ###\n")
+        tier_ratings = []
         for item in result["tier"].items:
             output = " - "
             if item in result["books"]:
                 book = result["books"][item]
+                tier_ratings.append(float(book.average_rating))
                 output += book_description(book)
             else:
+                tier_ratings.append(0.0)
                 output += str(item) + "was not found..."
             print(output)
+        average = float(sum(tier_ratings)) / max(len(tier_ratings), 1)
+        ratings += tier_ratings
+        print(" # Average rating in this tier:", average)
+    average = float(sum(ratings)) / max(len(ratings), 1)
+    print(" # Average rating in bundle:", average)
 
 
 def main():

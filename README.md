@@ -64,5 +64,7 @@ I've tried to break down the logic to modules so I can easily extend the functio
 
 - [ ] Enhance output
 - [ ] Nicer README
+- [ ] Add config
+- [ ] Add options (ex. --charity - to show which charity bundle supports)
 - [ ] Cleanup repo and code refinements before public GitHub release
 - [ ] Game/Mobile Bundles support

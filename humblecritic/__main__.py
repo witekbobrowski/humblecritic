@@ -3,8 +3,8 @@
 # Author: Witek Bobrowski
 
 import argparse as ap
-import goodreads as gr
-import humblebundle as hb
+import humblecritic.goodreads as gr
+import humblecritic.humblebundle as hb
 
 client = gr.GoodreadsClient("developer-key", "secret")
 

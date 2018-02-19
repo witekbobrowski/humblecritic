@@ -20,5 +20,10 @@ setup(
     author_email='witek@bobrowski.com.pl',
     url='https://github.com/witekbobrowski/humble-rating',
     license=license,
-    packages=find_packages(exclude=('tests'))
+    packages=find_packages(exclude=('tests')),
+    entry_points={
+        'console_scripts': [
+            'humblecritic = humblecritic.__main__:main'
+        ]
+    },
 )

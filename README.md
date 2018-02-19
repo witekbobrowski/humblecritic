@@ -1,5 +1,8 @@
-# humblecritic
-
+<p align=center>
+<a href="">
+<img height=180 alt="" src="logo.png">
+</a>
+</p>
 <p align=center>
 <a href="">
 <img alt="" src="https://img.shields.io/badge/python-v3.6.3-blue.svg">

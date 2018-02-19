@@ -6,7 +6,7 @@ import argparse as ap
 import goodreads as gr
 import humblebundle as hb
 
-client = gr.GoodreadsClient("developer-key","secret")
+client = gr.GoodreadsClient("developer-key", "secret")
 
 
 def setup_parser():

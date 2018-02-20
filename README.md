@@ -11,7 +11,7 @@
 
 💯 Get score for HumbleBundle bundle
 
-# Bundles supported:
+#### Bundles supported:
 
 - [x] Book bundle (ratings from [Goodreads](goodreads.com))
 - [ ] Game bundle
@@ -28,7 +28,7 @@ $ ./install.sh
 
 And thats basically it.
 
-Note: To access some services (like goodreads) the scripts needs to have api keys. You will be promped to pass these in if needed.
+Note: To access some services (like goodreads) the script needs to have api keys. You will be promped to pass these in if needed.
 
 ## Usage
 
@@ -71,9 +71,10 @@ I've tried to break down the logic to modules so I can easily extend the functio
 
 ## TODO
 
+- [x] Add config
+- [x] Add installation script
 - [ ] Enhance output
 - [ ] Nicer README
-- [ ] Add config
 - [ ] Add options (ex. --charity - to show which charity bundle supports)
 - [ ] Cleanup repo and code refinements before public GitHub release
 - [ ] Game/Mobile Bundles support

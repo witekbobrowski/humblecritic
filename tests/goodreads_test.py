@@ -2,15 +2,14 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-from .context import hc
-
+from .context import goodreads
+from .context import config
 import unittest
-
 
 class TestGoodreadsClientSuite(unittest.TestCase):
 
-    client = hc.GoodreadsClient("wbR3iPCTuK3dD0ydCEUnw",
-                            "ZIYF3sAD9ZQUGmndxted6yHdRRDmgh6V2PKe0tPLidc")
+    keys = config.getGoodreadsKeys()
+    client = goodreads.GoodreadsClient(keys["developer-key"], keys["secret"])
 
     def test_show_book(self):
         book_id = 1
@@ -23,6 +22,7 @@ class TestGoodreadsClientSuite(unittest.TestCase):
         if len(books) == 0:
             assert False
         assert books[0]["title"] == book_title
+
 
 if __name__ == '__main__':
     unittest.main()

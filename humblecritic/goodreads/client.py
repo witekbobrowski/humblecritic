@@ -38,9 +38,9 @@ class GoodreadsClient:
         else:
             return [response["search"]["results"]["work"]["best_book"]]
 
-    def show_book(self, id):
+    def show_book(self, book_id):
         method = HTTPMethod.GET.value
         api_path = "/book/show.xml"
-        params = {"format": "xml", "id": id, "key": self.key}
+        params = {"format": "xml", "id": book_id, "key": self.key}
         response = self.request(method, api_path, params)
         return Book(response["book"])

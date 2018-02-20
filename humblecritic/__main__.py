@@ -5,13 +5,15 @@
 import argparse as ap
 import humblecritic.goodreads as gr
 import humblecritic.humblebundle as hb
+from humblecritic import config
 
-client = gr.GoodreadsClient("developer-key", "secret")
+keys = config.getGoodreadsKeys()
+client = gr.GoodreadsClient(keys["developer-key"], keys["secret"])
 
 
 def setup_parser():
     parser = ap.ArgumentParser()
-    parser.add_argument('-u', '--url', help="URL [1 or more] to specific HumbleBundle book bundle.",
+    parser.add_argument('-l', '--link', help="URL [1 or more] to specific HumbleBundle book bundle.",
                         dest='urls', nargs='*', action='store')
     return parser.parse_args()
 

@@ -5,7 +5,6 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import sys
 
 
 def get_page_content(url):

@@ -7,9 +7,9 @@ from enum import Enum
 
 class Item:
 
-    def __init__(self, title, type):
+    def __init__(self, title, item_type):
         self.title = title
-        self.type = type
+        self.type = item_type
 
     def __repr__(self):
         return self.title

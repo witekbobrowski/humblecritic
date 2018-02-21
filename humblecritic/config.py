@@ -5,7 +5,7 @@
 import os.path
 from pathlib import Path
 
-path_to_rc_file = str(Path.home()) + "/.humblecritic.rc"
+path_to_rc_file = Path.home() / ".humblecriticrc"
 
 # Keys
 

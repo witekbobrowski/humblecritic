@@ -7,9 +7,11 @@ pip3 install -r requirements.txt || {
 }
 echo "Success"
 
-echo "Looking for rc file..."
-if ! [[ -f "~/.humblecriticrc" ]]; then
+echo "Looking for rc file at \"${HOME}/.humblecriticrc\""
+if ! [[ -f "${HOME}/.humblecriticrc" ]]; then
     echo "[WARNING] rc file is missing!"
+    printf "# Configuration file for humblecritic\n# URL: github.com/witekbobrowski/humblecritic\n" > "${HOME}/.humblecriticrc"
+    echo "rc file was created at \"${HOME}/.humblecriticrc\""
 else
     echo "Success"
 fi

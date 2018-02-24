@@ -36,10 +36,20 @@ Note: To access some services (like goodreads) the script needs to have api keys
 The installation process will supply entry point for the script so you can run it like so
 
 ```
-$ humblecritic -l https://www.humblebundle.com/books/functional-programming-books
+$ humblecritic [-h] [-l [urls]] [-j file]
 ```
 
-Add `--json output.json` to export scraped data to json.
+Add one or more option from below for customised behaviour:
+
+- `-h, --help` Display help message and exit.
+
+- `-l, --link [urls]` URL's for HumbleBundle bundles to be scraped and reviewed.
+
+- `-j, --json scraped-data.json` Export scraped data to json.
+
+- `-v, --version` Print the script version.
+
+NOTE: Current version requires `-l` option with desired bundle urls for any results.
 
 ## Contents
 

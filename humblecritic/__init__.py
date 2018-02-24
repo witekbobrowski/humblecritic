@@ -2,7 +2,7 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-__version__ = '0.1.0-dev'
+__version__ = '0.2.0'
 
 from . import goodreads
 from . import humblebundle

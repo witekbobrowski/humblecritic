@@ -3,6 +3,7 @@
 # Author: Witek Bobrowski
 
 from setuptools import setup, find_packages
+from humblecritic import __version__
 
 with open('README.md') as f:
     readme = f.read()
@@ -12,7 +13,7 @@ with open('LICENSE') as f:
 
 setup(
     name='humblecritic',
-    version='0.1.0',
+    version=__version__,
     description='Get score for HumbleBundle bundle',
     long_description=readme,
     author='Witek Bobrowski',

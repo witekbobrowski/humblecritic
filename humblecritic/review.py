@@ -3,9 +3,9 @@
 # Author: Witek Bobrowski
 
 import argparse as ap
-import humblecritic.goodreads as gr
-import humblecritic.humblebundle as hb
-import humblecritic.config as config
+from humblecritic import goodreads as gr
+from humblecritic import humblebundle as hb
+from humblecritic import config as config
 
 
 def review_bundle(bundle):
@@ -13,7 +13,7 @@ def review_bundle(bundle):
         return get_goodreads_reviews_for(bundle)
     else:
         print(
-            "[ERROR] Only the books or comics bundles are supported at the moment :(.")
+            "[ERROR] Only the 'books bundle' or 'comics bundle' are supported at the moment :(")
         return None
 
 

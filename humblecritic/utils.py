@@ -4,14 +4,16 @@
 
 import json
 import argparse
-import humblecritic.goodreads as gr
+from humblecritic import goodreads as gr
+from humblecritic import __version__
 
 
 def setup_parser():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Get score for HumbleBundle bundles.')
+    parser.add_argument('-v', '--version', help="print the script version", action='version', version=__version__)
     parser.add_argument('-l', '--link', help="URL [1 or more] to specific HumbleBundle book bundle.",
                         dest='urls', nargs='*', action='store')
-    parser.add_argument('-j', '--json', help="Export results to json file.",
+    parser.add_argument('-j', '--json', help="export results to json file.",
                         dest='json_file', action='store')
     return parser.parse_args()
 
@@ -61,7 +63,7 @@ def item_description(item):
         lines.append(description)
     else:
         lines = [
-            str(item) + "was not found (will not be counted in total score)."]
+            str(item) + " was not found (will not be counted in total score)."]
     return lines
 
 

@@ -2,9 +2,9 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-import humblecritic.humblebundle as hb
-import humblecritic.review as review
-import humblecritic.utils as utils
+from humblecritic import humblebundle as hb
+from humblecritic import review as review
+from humblecritic import utils as utils
 
 
 def main():

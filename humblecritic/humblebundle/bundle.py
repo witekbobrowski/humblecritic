@@ -2,6 +2,13 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
+from enum import Enum
+
+class BundleType(Enum):
+    BOOK = "books"
+    GAME = "games"
+    SOFTWARE = "software"
+    MOBILE = "mobile"
 
 class Bundle:
 
@@ -9,6 +16,7 @@ class Bundle:
         self.url = None
         self.title = None
         self.tiers = None
+        self.type = None
 
     def __repr__(self):
         output = "{0.title} \nurl: \'{0.url}\'\n".format(self)

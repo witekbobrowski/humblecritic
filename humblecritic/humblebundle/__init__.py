@@ -5,6 +5,6 @@
 from .builder import construct_bundle
 from .builder import Builder
 from .bundle import Bundle
+from .bundle import BundleType
 from .tier import Tier
 from .item import Item
-from .item import ItemType

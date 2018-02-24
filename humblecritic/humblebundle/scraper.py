@@ -3,8 +3,12 @@
 # Author: Witek Bobrowski
 
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+import os.path
 import requests
 import re
+
+base_url = "https://www.humblebundle.com/"
 
 
 def get_page_content(url):
@@ -13,13 +17,19 @@ def get_page_content(url):
         return BeautifulSoup(page.content, 'html.parser')
 
 
+def get_bundle_type(url):
+    parsed_url = urlparse(url)
+    return os.path.split(parsed_url.path)[0].replace("/", "")
+
+
 def get_bundle_title(content):
     return content.title.get_text()
 
 
 def get_tier_price(tier_headline_content):
     string = tier_headline_content.get_text().strip()
-    return "$" + re.search('\$(.+?)\ ', string).group(1)
+    price = re.search('\$(.+?)\ ', string)
+    return string if price is None else "$" + price.group(1)
 
 
 def get_items(tier_content):

@@ -14,6 +14,7 @@
 #### Bundles supported:
 
 - [x] Book bundle (ratings from [Goodreads](goodreads.com))
+- [x] Comic bundle (ratings from [Goodreads](goodreads.com))
 - [ ] Game bundle
 - [ ] Software bundle
 - [ ] Mobile bundle

@@ -2,3 +2,4 @@ beautifulsoup4
 xmltodict
 argparse
 requests
+urllib

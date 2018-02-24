@@ -7,6 +7,7 @@ class Item:
 
     def __init__(self, title):
         self.title = title
+        self.meta_item = None
 
     def __repr__(self):
         return self.title

@@ -26,10 +26,13 @@ def get_bundle_title(content):
     return content.title.get_text()
 
 
-def get_tier_price(tier_headline_content):
-    string = tier_headline_content.get_text().strip()
-    price = re.search('\$(.+?)\ ', string)
-    return string if price is None else "$" + price.group(1)
+def get_tier_headline(tier_headline_content):
+    return tier_headline_content.get_text().strip()
+
+
+def get_tier_price(headline):
+    price = re.search('\$(.+?)\ ', headline)
+    return "$0" if price is None else "$" + price.group(1)
 
 
 def get_items(tier_content):
@@ -41,14 +44,14 @@ def get_items(tier_content):
             class_=item_title_css_class).get_text().strip())
     return items
 
-
 def get_tiers(content):
     tier_css_class = "main-content-row dd-game-row js-nav-row"
     tier_headline_css_class = "dd-header-headline"
     tiers = []
     for tier_content in content.find_all(class_=tier_css_class):
-        price = get_tier_price(tier_content.find(
-            class_=tier_headline_css_class))
+        headline = get_tier_headline(
+            tier_content.find(class_=tier_headline_css_class))
+        price = get_tier_price(headline)
         items = get_items(tier_content)
-        tiers.append((items, price))
+        tiers.append({"title": headline, "price": price, "items": items})
     return tiers

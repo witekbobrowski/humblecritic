@@ -4,11 +4,13 @@
 
 from enum import Enum
 
+
 class BundleType(Enum):
-    BOOK = "books"
-    GAME = "games"
-    SOFTWARE = "software"
-    MOBILE = "mobile"
+    books = "books"
+    games = "games"
+    software = "software"
+    mobile = "mobile"
+
 
 class Bundle:
 

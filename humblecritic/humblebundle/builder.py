@@ -8,6 +8,7 @@ from .bundle import BundleType
 from .tier import Tier
 from .item import Item
 
+
 def construct_bundle(builder):
     builder.new_bundle()
     builder.build_url()
@@ -39,8 +40,9 @@ class Builder:
     def build_tiers(self):
         tiers = []
         scraped_tiers = scraper.get_tiers(self.content)
-        for scraped_tier in scraped_tiers:
-            price = scraped_tier[1]
-            items = [Item(item) for item in scraped_tier[0]]
-            tiers.append(Tier(items, price))
+        for tier in scraped_tiers:
+            title = tier["title"]
+            price = tier["price"]
+            items = [Item(item) for item in tier["items"]]
+            tiers.append(Tier(title, price, items))
         self.bundle.tiers = tiers

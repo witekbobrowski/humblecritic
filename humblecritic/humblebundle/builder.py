@@ -11,6 +11,7 @@ from .item import Item
 def construct_bundle(builder):
     builder.new_bundle()
     builder.build_url()
+    builder.build_title()
     builder.build_type()
     builder.build_tiers()
     return builder.bundle

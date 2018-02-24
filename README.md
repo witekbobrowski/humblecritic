@@ -36,7 +36,7 @@ Note: To access some services (like goodreads) the script needs to have api keys
 The installation process will supply entry point for the script so you can run it like so
 
 ```
-$ humblecritic [-h] [-l [urls]] [-j file]
+$ humblecritic [-h] [-l [urls]] [-j file] [-v]
 ```
 
 Add one or more option from below for customised behaviour:

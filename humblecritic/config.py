@@ -49,3 +49,8 @@ def getValueFor(key):
 def getGoodreadsKeys():
     return {"developer-key": getValueFor(goodreads_key),
             "secret": getValueFor(goodreads_secret)}
+
+
+def saveGoodreadsKeys(keys):
+    setValueFor(goodreads_key, keys["developer-key"])
+    setValueFor(goodreads_secret, keys["secret"])

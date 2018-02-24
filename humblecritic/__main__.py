@@ -3,8 +3,8 @@
 # Author: Witek Bobrowski
 
 import argparse as ap
-import humblebundle as hb
-import review
+import humblecritic.humblebundle as hb
+import humblecritic.review as review
 
 def setup_parser():
     parser = ap.ArgumentParser()

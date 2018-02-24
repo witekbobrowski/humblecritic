@@ -3,9 +3,9 @@
 # Author: Witek Bobrowski
 
 import argparse as ap
-import goodreads as gr
-import humblebundle as hb
-import config
+import humblecritic.goodreads as gr
+import humblecritic.humblebundle as hb
+import humblecritic.config as config
 
 
 def review_bundle(bundle):
@@ -15,12 +15,23 @@ def review_bundle(bundle):
         print("[ERROR] Only the books or comics bundles are supported at the moment :(.")
         return None
 
+def check_goodreads_keys(keys):
+    if keys["developer-key"] is not None and keys["secret"] is not None:
+        return
+    if keys["developer-key"] is None:
+        print("[WARNING] developer key for goodreads api is missing!")
+        keys["developer-key"] = input("Please enter developer key for goodreads API:")
+    if keys["secret"] is None:
+        print("[WARNING] secret for goodreads api is missing!")
+        keys["secret"] = input("Please enter secret for goodreads API:")
+    if input("Do you wish to save them in the rc file at '" + str(config.path_to_rc_file) + "'? [Y/n]") is "Y":
+        config.saveGoodreadsKeys(keys)
+    return keys
+
 
 def get_goodreads_reviews_for(bundle):
     keys = config.getGoodreadsKeys()
-    if keys["developer-key"] is None or keys["secret"] is None:
-        print("[ERROR] Goodreads API keys are missing from rc file")
-        return None
+    check_goodreads_keys(keys)
     client = gr.GoodreadsClient(keys["developer-key"], keys["secret"])
     print("Searching Goodreads for best book match...")
     results = []

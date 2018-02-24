@@ -23,19 +23,26 @@ def export_to_json(path, bundles):
         for tier in bundle.tiers:
             items = []
             for item in tier.items:
+                entry = {}
                 if isinstance(item.meta_item, gr.Book):
-                    items.append({"id": item.meta_item.id,
-                                  "title": item.meta_item.title,
-                                  "authors": item.meta_item.authors,
-                                  "link": item.meta_item.link,
-                                  "average_rating": item.meta_item.average_rating,
-                                  "ratings_count": item.meta_item.ratings_count})
+                    entry = {"id": item.meta_item.id,
+                             "title": item.meta_item.title,
+                             "authors": item.meta_item.authors,
+                             "link": item.meta_item.link,
+                             "average_rating": item.meta_item.average_rating,
+                             "ratings_count": item.meta_item.ratings_count}
                 else:
-                    items.append({"title": item.title})
+                    entry = {"id": "",
+                             "title": item.title,
+                             "authors": "",
+                             "link": "",
+                             "average_rating": "",
+                             "ratings_count": ""}
+                items.append(entry)
             tiers.append(
                 {"title": tier.title, "price": tier.price, "items": items})
-        data.append({"title": bundle.title, "link": str(bundle.url),
-                     "type": str(bundle.type), "tiers": tiers})
+        data.append({"title": bundle.title, "link": bundle.url,
+                     "type": bundle.type.value, "tiers": tiers})
     with open(path, 'w') as outfile:
         json.dump(data, outfile)
 

@@ -19,8 +19,8 @@ def main():
             bundles.append(bundle)
             utils.print_summary(bundle)
     if args.json_file != None:
-        print("Exporting to " + args.json_file + "...")
         utils.export_to_json(args.json_file, bundles)
+        print("Exported scraped data to '" + args.json_file + "'.")
 
 
 if __name__ == '__main__':

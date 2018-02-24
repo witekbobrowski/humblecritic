@@ -39,6 +39,8 @@ The installation process will supply entry point for the script so you can run i
 $ humblecritic -l https://www.humblebundle.com/books/functional-programming-books
 ```
 
+Add `--json output.json` to export scraped data to json.
+
 ## Contents
 
 I've tried to break down the logic to modules so I can easily extend the functionality in the future (ex. by supporting game bundles and getting reviews from metacritic.com).

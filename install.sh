@@ -17,14 +17,21 @@ else
 fi
 
 echo "Testing package..."
-python3 setup.py test || {
+python3 setup.py -q test || {
     echo "[ERROR] Failure while testing package."
     exit 1
 }
 echo "Success"
 
+echo "Cleaning package..."
+python3 setup.py clean || {
+    echo "[ERROR] Failure while cleaning package."
+    exit 1
+}
+echo "Success"
+
 echo "Installing package..."
-python3 setup.py install || {
+python3 setup.py -q install || {
     echo "[ERROR] Failure while installing package."
     exit 1
 }

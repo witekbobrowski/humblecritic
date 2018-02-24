@@ -47,35 +47,28 @@ I've tried to break down the logic to modules so I can easily extend the functio
 .
 ├── LICENSE
 ├── README.md
-├── humble_rating
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── goodreads
-│   │   ├── __init__.py
-│   │   ├── book.py
-│   │   └── client.py
-│   └── humblebundle
-│       ├── __init__.py
-│       ├── builder.py
-│       ├── bundle.py
-│       ├── item.py
-│       ├── scraper.py
-│       └── tier.py
+├── humblecritic
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── config.py
+│   ├── goodreads
+│   │   ├── __init__.py
+│   │   ├── book.py
+│   │   └── client.py
+│   ├── humblebundle
+│   │   ├── __init__.py
+│   │   ├── builder.py
+│   │   ├── bundle.py
+│   │   ├── item.py
+│   │   ├── scraper.py
+│   │   └── tier.py
+│   └── review.py
+├── install.sh
+├── logo.png
 ├── requirements.txt
 ├── setup.py
 └── tests
     ├── __init__.py
     ├── context.py
-    ├── goodreads_test.py
     └── humblebundle_test.py
 ```
-
-## TODO
-
-- [x] Add config
-- [x] Add installation script
-- [ ] Enhance output
-- [ ] Nicer README
-- [ ] Add options (ex. --charity - to show which charity bundle supports)
-- [ ] Cleanup repo and code refinements before public GitHub release
-- [ ] Game/Mobile Bundles support

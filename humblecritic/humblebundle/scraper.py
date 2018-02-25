@@ -2,11 +2,11 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-from bs4 import BeautifulSoup
-from urllib.parse import urlparse
-import os.path
-import requests
 import re
+import os.path
+from urllib.parse import urlparse
+import requests
+from bs4 import BeautifulSoup
 
 base_url = "https://www.humblebundle.com/"
 
@@ -43,6 +43,7 @@ def get_items(tier_content):
         items.append(item_content.find(
             class_=item_title_css_class).get_text().strip())
     return items
+
 
 def get_tiers(content):
     tier_css_class = "main-content-row dd-game-row js-nav-row"

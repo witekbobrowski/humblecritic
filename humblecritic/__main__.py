@@ -10,7 +10,7 @@ from humblecritic import utils as utils
 def main():
     args = utils.setup_parser()
     bundles = []
-    if args.urls != None:
+    if args.urls is not None:
         for url in args.urls:
             print("Scraping HumbleBundle...")
             bundle = hb.construct_bundle(hb.Builder(url))
@@ -18,7 +18,7 @@ def main():
             review.review_bundle(bundle)
             bundles.append(bundle)
             utils.print_summary(bundle)
-    if args.json_file != None:
+    if args.json_file is not None:
         utils.export_to_json(args.json_file, bundles)
         print("Exported scraped data to '" + args.json_file + "'.")
 

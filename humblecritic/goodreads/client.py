@@ -2,10 +2,11 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
+from enum import Enum
 import requests
 import xmltodict
-from enum import Enum
 from .book import Book
+
 
 class HTTPMethod(Enum):
     POST = "POST"
@@ -13,6 +14,7 @@ class HTTPMethod(Enum):
     PUT = "PUT"
     PATCH = "PATCH"
     DELETE = "DELETE"
+
 
 class GoodreadsClient:
 
@@ -23,7 +25,8 @@ class GoodreadsClient:
 
     def request(self, method, api, params):
         base_url = "http://www.goodreads.com"
-        response = self.session.request(method, base_url + api, params=params, timeout=3)
+        response = self.session.request(
+            method, base_url + api, params=params, timeout=3)
         return xmltodict.parse(response.content)["GoodreadsResponse"]
 
     def search_book(self, book):
@@ -31,12 +34,12 @@ class GoodreadsClient:
         api_path = "/search/index.xml"
         params = {"q": book, "key": self.key, "search[field]": "title"}
         response = self.request(method, api_path, params)
-        if response["search"]["results"] == None:
+        if response["search"]["results"] is None:
             return []
-        if type(response["search"]["results"]["work"]) == list:
-            return [results["best_book"] for results in response["search"]["results"]["work"]]
-        else:
-            return [response["search"]["results"]["work"]["best_book"]]
+        results = response["search"]["results"]["work"]
+        if isinstance(results, list):
+            return [result["best_book"] for result in results]
+        return [results["best_book"]]
 
     def show_book(self, book_id):
         method = HTTPMethod.GET.value

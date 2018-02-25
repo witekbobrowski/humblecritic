@@ -28,7 +28,7 @@ def setValueFor(key, value):
     for num, line in enumerate(config, 0):
         if line.startswith(key):
             line_number = num
-    if line_number == None:
+    if line_number is None:
         config.append(entry(key, value))
     else:
         config[line_number] = entry(key, value)

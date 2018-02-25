@@ -17,7 +17,7 @@ class Bundle:
     def __init__(self):
         self.url = None
         self.title = None
-        self.tiers = None
+        self.tiers = []
         self.type = None
 
     def __repr__(self):

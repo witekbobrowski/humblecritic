@@ -2,7 +2,6 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-import argparse as ap
 from humblecritic import goodreads as gr
 from humblecritic import humblebundle as hb
 from humblecritic import config as config
@@ -11,10 +10,8 @@ from humblecritic import config as config
 def review_bundle(bundle):
     if bundle.type is hb.BundleType.books:
         return get_goodreads_reviews_for(bundle)
-    else:
-        print(
-            "[ERROR] Only the 'books bundle' or 'comics bundle' are supported at the moment :(")
-        return None
+    print("[ERROR] " + bundle.type.value + " bundles are not supported :(")
+    return None
 
 
 # Goodreads
@@ -42,9 +39,10 @@ def get_goodreads_reviews_for(bundle):
         for book in tier.items:
             best_match_index = 0
             resp = client.search_book(book.title)
-            if len(resp) == 0:
+            if not resp:
                 print("[Failure] No results for :", book.title)
             else:
                 print("[Success]", resp[best_match_index]["title"],
                       "was found in Goodreads database.")
-                book.meta_item = client.show_book(resp[best_match_index]["id"]["#text"])
+                book.meta_item = client.show_book(
+                    resp[best_match_index]["id"]["#text"])

@@ -21,10 +21,10 @@ class Book:
 
     @property
     def authors(self):
-        if type(self._book_dict["authors"]["author"]) == list:
-            return [author_dict["name"] for author_dict in self._book_dict["authors"]["author"]]
-        else:
-            return [self._book_dict["authors"]["author"]["name"]]
+        result = self._book_dict["authors"]["author"]
+        if isinstance(result, list):
+            return [author_dict["name"] for author_dict in result]
+        return [result["name"]]
 
     @property
     def average_rating(self):

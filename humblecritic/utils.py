@@ -9,8 +9,10 @@ from humblecritic import __version__
 
 
 def setup_parser():
-    parser = argparse.ArgumentParser(description='Get score for HumbleBundle bundles.')
-    parser.add_argument('-v', '--version', help="print the script version", action='version', version=__version__)
+    parser = argparse.ArgumentParser(
+        description='Get score for HumbleBundle bundles.')
+    parser.add_argument('-v', '--version', help="print the script version",
+                        action='version', version=__version__)
     parser.add_argument('-l', '--link', help="URL [1 or more] to specific HumbleBundle book bundle.",
                         dest='urls', nargs='*', action='store')
     parser.add_argument('-j', '--json', help="export results to json file.",
@@ -70,9 +72,9 @@ def item_description(item):
 def print_summary(bundle):
     print("\n" + bundle.title)
     ratings = []
-    for index, tier in enumerate(bundle.tiers):
+    for tier_index, tier in enumerate(bundle.tiers):
         prefix = "│"
-        if index is (len(bundle.tiers) - 1):
+        if tier_index is (len(bundle.tiers) - 1):
             print("└── " + tier.title)
             prefix = " "
         else:

@@ -44,7 +44,7 @@ done
 # Installing Requirements
 echo "Installing requirements..." &> $output_device
 pip3 install -r requirements.txt  &> $output_device || {
-    echo "[ERROR] Failure while installing requirements." &> $output_device
+    echo "[ERROR] Failure while installing requirements. Package was not installed!" &> $output_device
     exit 1
 }
 echo "Success" &> $output_device
@@ -62,7 +62,7 @@ fi
 # Testing package
 echo "Testing package..." &> $output_device
 python3 setup.py -q test &> $output_device || {
-    echo "[ERROR] Failure while testing package." &> $output_device
+    echo "[ERROR] Failure while testing package. Package was not installed!" &> $output_device
     exit 1
 }
 echo "Success" &> $output_device
@@ -70,7 +70,7 @@ echo "Success" &> $output_device
 # Cleaning package
 echo "Cleaning package..." &> $output_device
 python3 setup.py clean &> $output_device || {
-    echo "[ERROR] Failure while cleaning package." &> $output_device
+    echo "[ERROR] Failure while cleaning package. Package was not installed!" &> $output_device
     exit 1
 }
 echo "Success" &> $output_device
@@ -78,7 +78,7 @@ echo "Success" &> $output_device
 # Installing package
 echo "Installing package..."  &> $output_device
 python3 setup.py install &> $output_device || {
-    echo "[ERROR] Failure while installing package." &> $output_device
+    echo "[ERROR] Failure while installing package. Package was not installed!" &> $output_device
     exit 1
 }
 echo "Success" &> $output_device

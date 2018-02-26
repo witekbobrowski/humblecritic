@@ -10,7 +10,7 @@ class TestBundleBuilderSuite(unittest.TestCase):
 
     @classmethod
     def test_bundle_builder(cls):
-        url = "https://www.humblebundle.com/books/functional-programming-books"
+        url = "https://www.humblebundle.com/books/code-your-own-games-books"
         bundle = humblebundle.construct_bundle(humblebundle.Builder(url))
         if bundle.title is None or not bundle.tiers:
             raise AssertionError()

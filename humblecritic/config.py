@@ -20,7 +20,7 @@ def entry(key, value):
 
 
 def setValueFor(key, value):
-    if not os.path.isfile(path_to_rc_file):
+    if not os.path.isfile(str(path_to_rc_file)):
         return
     with open(path_to_rc_file, "r") as f:
         config = f.readlines()
@@ -37,7 +37,7 @@ def setValueFor(key, value):
 
 
 def getValueFor(key):
-    if not os.path.isfile(path_to_rc_file):
+    if not os.path.isfile(str(path_to_rc_file)):
         return None
     with open(path_to_rc_file, "r") as f:
         config = f.readlines()

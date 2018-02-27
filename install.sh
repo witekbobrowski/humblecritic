@@ -81,9 +81,14 @@ python3 $setup_path clean &> $output_device || {
 echo "Success" &> $output_device
 
 # Installing package
-echo "Installing package..."  &> $output_device
+echo "Installing package..." &> $output_device
 python3 $setup_path install --user &> $output_device || {
     echo "[ERROR] Failure while installing package. Package was not installed!" &> $output_device
     exit 1
 }
+
+# Create symbolic link
+echo "Creating Symbolic link to humblecritic in /usr/local/bin/ ..." &> $output_device
+USER_BASE=$(python3 -c "from site import USER_BASE; print(USER_BASE)")
+ln -s $USER_BASE"/bin/humblecritic" "/usr/local/bin/humblecritic"
 echo "Success" &> $output_device

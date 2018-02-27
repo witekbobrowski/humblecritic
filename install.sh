@@ -77,7 +77,7 @@ echo "Success" &> $output_device
 
 # Installing package
 echo "Installing package..."  &> $output_device
-python3 setup.py install &> $output_device || {
+python3 setup.py install --user &> $output_device || {
     echo "[ERROR] Failure while installing package. Package was not installed!" &> $output_device
     exit 1
 }

@@ -5,8 +5,8 @@
 </p>
 <p align=center>
     <a href=""><img alt="" src="https://img.shields.io/badge/python-v3.6.3-blue.svg"></a>
-<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=witekbobrowski/humblecritic&amp;utm_campaign=Badge_Grade">
-    <img alt="" src="https://api.codacy.com/project/badge/Grade/03b0f1b8ea64492e9a11291d274f1348">
+<a href="https://www.codacy.com/app/witekbobrowski/humblecritic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=witekbobrowski/humblecritic&amp;utm_campaign=Badge_Grade">
+    <img alt="" src="https://api.codacy.com/project/badge/Grade/90ff6da10d6d45c2a7faa3adb412b63b">
 </a>
 </p>
 

@@ -2,7 +2,6 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
-import os.path
 from pathlib import Path
 
 path_to_rc_file = Path.home() / ".humblecriticrc"

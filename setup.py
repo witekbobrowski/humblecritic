@@ -2,13 +2,16 @@
 # -*- coding : utf-8 -*-
 # Author: Witek Bobrowski
 
+import os
 from setuptools import setup, find_packages
 from humblecritic import __version__
 
-with open('README.md') as f:
+basename = os.path.dirname(os.path.realpath(__file__))
+
+with open(os.path.join(basename, 'README.md')) as f:
     readme = f.read()
 
-with open('LICENSE') as f:
+with open(os.path.join(basename, 'LICENSE')) as f:
     license_file = f.read()
 
 setup(

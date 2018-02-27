@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+script="$0"
+basename="$(dirname $script)"
+
 error=0
 output_device="/dev/tty"
 
@@ -42,8 +45,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Installing Requirements
-echo "Installing requirements..." &> $output_device
-pip3 install -r requirements.txt  &> $output_device || {
+requirements_path=$basename"/requirements.txt"
+echo "Installing requirements from $requirements_path..." &> $output_device
+pip3 install -r $requirements_path  &> $output_device || {
     echo "[ERROR] Failure while installing requirements. Package was not installed!" &> $output_device
     exit 1
 }
@@ -59,9 +63,10 @@ else
     echo "Success" &> $output_device
 fi
 
+setup_path=$basename"/setup.py"
 # Testing package
 echo "Testing package..." &> $output_device
-python3 setup.py -q test &> $output_device || {
+python3 $setup_path -q test &> $output_device || {
     echo "[ERROR] Failure while testing package. Package was not installed!" &> $output_device
     exit 1
 }
@@ -69,7 +74,7 @@ echo "Success" &> $output_device
 
 # Cleaning package
 echo "Cleaning package..." &> $output_device
-python3 setup.py clean &> $output_device || {
+python3 $setup_path clean &> $output_device || {
     echo "[ERROR] Failure while cleaning package. Package was not installed!" &> $output_device
     exit 1
 }
@@ -77,7 +82,7 @@ echo "Success" &> $output_device
 
 # Installing package
 echo "Installing package..."  &> $output_device
-python3 setup.py install --user &> $output_device || {
+python3 $setup_path install --user &> $output_device || {
     echo "[ERROR] Failure while installing package. Package was not installed!" &> $output_device
     exit 1
 }

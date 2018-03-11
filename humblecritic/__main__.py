@@ -10,7 +10,11 @@ from humblecritic import utils as utils
 def main():
     args = utils.setup_parser()
     bundles = []
-    if args.urls is not None:
+    if args.urls is None:
+        bundles = hb.get_available_bundles()
+        for bundle in bundles:
+            print(bundle["type"], bundle["title"])
+    else:
         for url in args.urls:
             print("Scraping HumbleBundle...")
             bundle = hb.construct_bundle(hb.Builder(url))

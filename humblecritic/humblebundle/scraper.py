@@ -5,7 +5,9 @@
 import re
 import os.path
 from urllib.parse import urlparse
+from urllib.parse import urljoin
 import requests
+from selenium import webdriver
 from bs4 import BeautifulSoup
 
 base_url = "https://www.humblebundle.com/"
@@ -15,6 +17,29 @@ def get_page_content(url):
     page = requests.get(url)
     if page.status_code == 200:
         return BeautifulSoup(page.content, 'html.parser')
+    return None
+
+
+def get_available_bundles():
+    options = webdriver.firefox.options.Options()
+    options.add_argument('-headless')
+    driver = webdriver.Firefox(options=options)
+    driver.get(base_url)
+    content = BeautifulSoup(driver.page_source, 'html.parser')
+    bundles_dropdown_css_class = "js-dropdown-button dropdown-button"
+    bundle_css_class = "simple-tile-view one-third bundle navbar-tile"
+    bundle_title_css_class, bundle_url_css_class = "name", "more-details"
+    bundles = []
+    dropdown = content.find(class_=bundles_dropdown_css_class)
+    for bundle_content in dropdown.find_all(class_=bundle_css_class):
+        title = bundle_content.find(class_=bundle_title_css_class).get_text().strip()
+        if "MONTHLY" in title:
+            continue
+        url = bundle_content.find(class_=bundle_url_css_class)["href"].strip()
+        url = urljoin(base_url, url)
+        type_ = get_bundle_type(url)
+        bundles.append({"title": title, "url": url, "type": type_})
+    return bundles
 
 
 def get_bundle_type(url):

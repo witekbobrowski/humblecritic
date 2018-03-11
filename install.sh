@@ -90,5 +90,5 @@ python3 $setup_path install --user &> $output_device || {
 # Create symbolic link
 echo "Creating Symbolic link to humblecritic in /usr/local/bin/ ..." &> $output_device
 USER_BASE=$(python3 -c "from site import USER_BASE; print(USER_BASE)")
-ln -s $USER_BASE"/bin/humblecritic" "/usr/local/bin/humblecritic"
+ln -s $USER_BASE "/bin/humblecritic" "/usr/local/bin/humblecritic" &> $output_device
 echo "Success" &> $output_device

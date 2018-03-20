@@ -6,14 +6,22 @@ import unittest
 from .context import humblebundle
 
 
-class TestBundleBuilderSuite(unittest.TestCase):
+class TestHumbleBundleScraper(unittest.TestCase):
+
+    bundles = []
+
+    @classmethod
+    def test_get_available_bundles(cls):
+        cls.bundles = humblebundle.get_available_bundles()
+        if not cls.bundles:
+            raise AssertionError()
 
     @classmethod
     def test_bundle_builder(cls):
-        url = "https://www.humblebundle.com/books/code-your-own-games-books"
-        bundle = humblebundle.construct_bundle(humblebundle.Builder(url))
-        if bundle.title is None or not bundle.tiers:
-            raise AssertionError()
+        for bundle in cls.bundles:
+            hb = humblebundle.construct_bundle(humblebundle.Builder(bundle["url"]))
+            if hb.title is None or not hb.tiers:
+                raise AssertionError()
 
 
 if __name__ == '__main__':
